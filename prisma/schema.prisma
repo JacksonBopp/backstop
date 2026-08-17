@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Submission {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // raw quiz payload, kept verbatim for audit / future re-scoring
+  answers    Json
+  axisScores Json?
+
+  deploymentTopology      DeploymentTopology
+  changeReadiness         ChangeReadiness
+  surveillanceSensitivity SurveillanceSensitivity
+
+  contactName  String?
+  contactEmail String?
+  contactOrg   String?
+
+  status SubmissionStatus @default(NEW)
+  notes  String?          @db.Text
+}
+
+enum DeploymentTopology {
+  AUGMENTATION
+  AUTOMATION
+  DECISION_SUPPORT
+  MIXED
+}
+
+enum ChangeReadiness {
+  BURNED
+  NEUTRAL
+  ENTHUSIASTIC
+}
+
+enum SurveillanceSensitivity {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum SubmissionStatus {
+  NEW
+  CONTACTED
+  NOT_YET
+  CLOSED
+}

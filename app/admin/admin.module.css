@@ -1,0 +1,69 @@
+.shell { min-height: 100vh; background: var(--bg); }
+.bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 16px 32px; border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+.bar .mark { font-family: var(--font-display); font-size: 19px; font-weight: 600; }
+.bar .sub { font-family: var(--font-mono); font-size: 11px; color: var(--text-faint); letter-spacing: 0.04em; margin-left: 10px; }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 40px 32px 80px; }
+
+/* ---------- Login ---------- */
+.login-shell { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--bg); }
+.login-card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 40px;
+  box-shadow: var(--shadow); width: 100%; max-width: 360px;
+}
+.login-card h1 { font-size: 22px; margin-top: 10px; }
+.login-card input {
+  width: 100%; margin-top: 20px; font-family: var(--font-body); font-size: 15px; padding: 11px 14px;
+  border-radius: 4px; border: 1px solid var(--line-strong); background: var(--bg); color: var(--text);
+}
+.login-card button { margin-top: 20px; width: 100%; text-align: center; }
+.login-card .err { margin-top: 14px; font-size: 13.5px; color: var(--copper); }
+
+/* ---------- Dashboard table ---------- */
+.filters { display: flex; gap: 12px; flex-wrap: wrap; margin: 24px 0; }
+.filters select {
+  font-family: var(--font-body); font-size: 13.5px; padding: 7px 10px; border-radius: 4px;
+  border: 1px solid var(--line-strong); background: var(--surface); color: var(--text);
+}
+.table-wrap { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--surface); }
+.table-wrap table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.table-wrap th {
+  text-align: left; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--text-faint); padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--bg-alt);
+}
+.table-wrap td { padding: 14px 16px; border-bottom: 1px solid var(--line); vertical-align: top; color: var(--text-soft); }
+.table-wrap tr:last-child td { border-bottom: none; }
+.table-wrap tr:hover td { background: var(--bg-alt); }
+.table-wrap td a { color: var(--text); text-decoration: none; font-weight: 600; }
+.table-wrap td a:hover { color: var(--copper); }
+.badge {
+  display: inline-block; font-family: var(--font-mono); font-size: 11px; padding: 3px 8px; border-radius: 3px;
+  background: var(--bg-alt); color: var(--text-soft); white-space: nowrap;
+}
+.badge.status-NEW { background: var(--copper-soft); color: var(--copper); }
+.badge.status-CONTACTED { background: var(--sage-soft); color: var(--sage); }
+.empty { padding: 48px; text-align: center; color: var(--text-faint); }
+
+/* ---------- Detail ---------- */
+.detail-grid { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 32px; margin-top: 24px; }
+@media (max-width: 800px) { .detail-grid { grid-template-columns: 1fr; } }
+.qa-item { padding: 16px 0; border-bottom: 1px solid var(--line); }
+.qa-item:last-child { border-bottom: none; }
+.qa-item .prompt { font-size: 14px; color: var(--text-faint); }
+.qa-item .answer { margin-top: 6px; font-size: 15px; color: var(--text); }
+.side-card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 22px; margin-bottom: 16px;
+}
+.side-card .k { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-faint); }
+.side-card .v { margin-top: 6px; font-size: 15px; }
+.side-card select, .side-card textarea {
+  width: 100%; margin-top: 10px; font-family: var(--font-body); font-size: 14px; padding: 10px 12px;
+  border-radius: 4px; border: 1px solid var(--line-strong); background: var(--bg); color: var(--text);
+}
+.side-card textarea { min-height: 120px; resize: vertical; }
+.back-link { font-size: 13px; color: var(--text-faint); text-decoration: none; }
+.back-link:hover { color: var(--copper); }
