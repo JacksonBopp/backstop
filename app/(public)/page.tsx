@@ -20,11 +20,11 @@ export default function LandingPage() {
             that actually sticks.
           </p>
           <div className="cta-row">
-            <a className="btn btn-primary" href="#architecture">
+            <Link className="btn btn-primary" href="/diagnostic">
+              Run the live diagnostic
+            </Link>
+            <a className="btn btn-ghost" href="#architecture">
               See the framework
-            </a>
-            <a className="btn btn-ghost" href="mailto:boppjackson@gmail.com?subject=IIO%20-%20quick%20intro">
-              Talk to us
             </a>
           </div>
 
@@ -48,48 +48,10 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section id="problem">
-        <div className="container">
-          <div className="head">
-            <span className="eyebrow">The gap nobody&apos;s instrumenting</span>
-            <h2>Companies are buying AI faster than they can redesign the work around it.</h2>
-          </div>
-          <div className="problem-body">
-            <div>
-              <p>
-                Enterprise AI spend has moved fast, tens of billions committed since 2023, while the systems that work
-                runs on haven&apos;t moved at all. Same job descriptions, same review chains, same performance metrics,
-                same informal trust networks. The tool changes. What surrounds it doesn&apos;t.
-              </p>
-              <p>
-                MIT&apos;s NANDA researchers call this the learning gap: the inability of an organization to integrate a
-                new kind of teammate into its workflows, roles, and culture. Solving it takes industrial-organizational
-                psychology and systems design, not more data science, and almost nobody is resourced for that
-                combination.
-              </p>
-              <p>
-                Meanwhile the human cost compounds quietly: fear of job loss, training overwhelm, review fatigue from
-                verify-the-AI work, and, in a meaningful share of teams, quiet or active sabotage of the very tools
-                leadership is betting on.
-              </p>
-            </div>
-            <div className="callout">
-              <span className="k">What&apos;s actually being measured</span>
-              <p>
-                Most organizations track adoption rate and output volume. Almost none track cognitive load, trust
-                calibration, or whether the redesigned role still has the autonomy and skill variety it had before. You
-                can&apos;t fix what you&apos;re not instrumenting, and right now the human side of AI integration is
-                running dark.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section id="architecture">
         <div className="container">
           <div className="head">
-            <span className="eyebrow">The architecture</span>
+            <span className="eyebrow">The framework</span>
             <h2>Five layers, one running system, not five separate initiatives.</h2>
             <p className="lede">
               A diagnostic layer determines which configuration of the framework applies to a given team. The four
@@ -118,16 +80,8 @@ export default function LandingPage() {
               Run the live diagnostic
             </Link>
           </div>
-        </div>
-      </section>
 
-      <section id="process">
-        <div className="container">
-          <div className="head">
-            <span className="eyebrow">How an engagement runs</span>
-            <h2>Four movements, repeated every cycle.</h2>
-          </div>
-          <div className="process">
+          <div className="process" style={{ marginTop: 72 }}>
             <div className="step">
               <div className="num">01</div>
               <h3>Diagnose</h3>
@@ -164,10 +118,46 @@ export default function LandingPage() {
         </div>
       </section>
 
+      <section id="problem">
+        <div className="container">
+          <div className="head">
+            <h2>Companies are buying AI faster than they can redesign the work around it.</h2>
+          </div>
+          <div className="problem-body">
+            <div>
+              <p>
+                Enterprise AI spend has moved fast, tens of billions committed since 2023, while the systems that work
+                runs on haven&apos;t moved at all. Same job descriptions, same review chains, same performance metrics,
+                same informal trust networks. The tool changes. What surrounds it doesn&apos;t.
+              </p>
+              <p>
+                MIT&apos;s NANDA researchers call this the learning gap: the inability of an organization to integrate a
+                new kind of teammate into its workflows, roles, and culture. Solving it takes industrial-organizational
+                psychology and systems design, not more data science, and almost nobody is resourced for that
+                combination.
+              </p>
+              <p>
+                Meanwhile the human cost compounds quietly: fear of job loss, training overwhelm, review fatigue from
+                verify-the-AI work, and, in a meaningful share of teams, quiet or active sabotage of the very tools
+                leadership is betting on.
+              </p>
+            </div>
+            <div className="callout">
+              <span className="k">What&apos;s actually being measured</span>
+              <p>
+                Most organizations track adoption rate and output volume. Almost none track cognitive load, trust
+                calibration, or whether the redesigned role still has the autonomy and skill variety it had before. You
+                can&apos;t fix what you&apos;re not instrumenting, and right now the human side of AI integration is
+                running dark.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="why-now">
         <div className="container">
           <div className="head">
-            <span className="eyebrow">Why now</span>
             <h2>The &quot;GenAI divide&quot; is a positioning opportunity, not just a warning sign.</h2>
           </div>
           <div className="why-grid">
@@ -221,6 +211,12 @@ export default function LandingPage() {
             <div className="cta-row">
               <a className="btn btn-primary" href="mailto:boppjackson@gmail.com?subject=IIO%20-%20quick%20intro">
                 boppjackson@gmail.com
+              </a>
+              <a className="btn btn-ghost" href="https://www.linkedin.com/in/jbopp/" target="_blank" rel="noopener noreferrer">
+                LinkedIn
+              </a>
+              <a className="btn btn-ghost" href="tel:+19414565553">
+                941-456-5553
               </a>
             </div>
           </div>

@@ -9,9 +9,8 @@ export default function SiteHeader() {
           <span className="tag">Integrated Intelligence &amp; Organization</span>
         </Link>
         <nav className="links">
-          <Link href="/#problem">The Gap</Link>
           <Link href="/#architecture">Framework</Link>
-          <Link href="/#process">Method</Link>
+          <Link href="/#problem">The Gap</Link>
           <Link href="/#ask">Get Involved</Link>
           <Link href="/diagnostic">Diagnostic</Link>
         </nav>

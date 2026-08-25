@@ -203,6 +203,8 @@ blockquote cite { display: block; margin-top: 10px; font-family: var(--font-mono
 .ask .cta-row { margin-top: 36px; }
 .ask .btn-primary { background: #F3F0EA; color: var(--blue-deep); border-color: #F3F0EA; }
 .ask .btn-primary:hover { background: #fff; }
+.ask .btn-ghost { color: #F3F0EA; border-color: rgba(243,240,234,0.35); }
+.ask .btn-ghost:hover { border-color: #F3F0EA; color: #fff; }
 
 /* ---------- Footer ---------- */
 footer { padding: 48px 0 60px; }
