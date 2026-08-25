@@ -7,7 +7,6 @@ export default function LandingPage() {
     <>
       <section className="hero">
         <div className="container">
-          <span className="eyebrow">A systems + I-O psychology framework for AI adoption</span>
           <h1>
             AI doesn&apos;t fail on the model.
             <br />
@@ -51,7 +50,6 @@ export default function LandingPage() {
       <section id="architecture">
         <div className="container">
           <div className="head">
-            <span className="eyebrow">The framework</span>
             <h2>Five layers, one running system, not five separate initiatives.</h2>
             <p className="lede">
               A diagnostic layer determines which configuration of the framework applies to a given team. The four
@@ -67,10 +65,10 @@ export default function LandingPage() {
               ))}
             </div>
             <div className="loop-col">
-              <svg viewBox="0 0 26 420" preserveAspectRatio="none" aria-hidden="true">
+              <svg viewBox="0 0 28 420" preserveAspectRatio="none" aria-hidden="true">
                 <path
                   className="loop-path"
-                  d="M 13 20 L 13 380 M 13 380 L 6 368 M 13 380 L 20 368 M 13 20 L 6 32 M 13 20 L 20 32"
+                  d="M 14 20 L 14 380 M 14 380 L 7 368 M 14 380 L 21 368 M 14 20 L 7 32 M 14 20 L 21 32"
                 />
               </svg>
             </div>
@@ -186,7 +184,6 @@ export default function LandingPage() {
       <section id="ask">
         <div className="container">
           <div className="ask">
-            <span className="eyebrow">Where things stand</span>
             <h2>
               IIO is an early-stage framework becoming a product. We&apos;re looking for the people who make that jump
               faster.

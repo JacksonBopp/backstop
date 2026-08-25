@@ -11,7 +11,7 @@ export default async function AdminLoginPage({
   return (
     <div className={styles["login-shell"]}>
       <div className={styles["login-card"]}>
-        <span className="eyebrow">IIO admin</span>
+        <p className={styles.kicker}>IIO admin</p>
         <h1>Sign in</h1>
         <form action={login}>
           <input type="password" name="password" placeholder="Password" required autoFocus />

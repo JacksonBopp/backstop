@@ -105,7 +105,6 @@ export default function DiagnosticApp() {
       {view === "diagnostic" && (
         <section className={styles.view}>
           <div className={`${styles.head} head`}>
-            <span className="eyebrow">Layer 0, live</span>
             <h1>Run the intake IIO uses to open every engagement.</h1>
             <p className="lede">
               Nine questions across the three axes that route a client into a specific configuration of the framework:
@@ -184,7 +183,6 @@ export default function DiagnosticApp() {
               />
 
               <div className={styles.synthesis}>
-                <span className="eyebrow">Configuration</span>
                 <h3>Where an IIO engagement would start</h3>
                 <ul>
                   <li>{topologyTemplates[winners.topology]}</li>
@@ -249,7 +247,6 @@ export default function DiagnosticApp() {
       {view === "explorer" && (
         <section className={styles.view}>
           <div className={`${styles.head} head`}>
-            <span className="eyebrow">The architecture, in depth</span>
             <h1>Five layers. Each with a method, a set of tools, and what it actually measures.</h1>
             <p className="lede">
               This is the same architecture from the diagnostic, expanded. Click a layer to see how it runs in an

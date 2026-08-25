@@ -32,8 +32,8 @@ export default async function AdminDashboardPage({
 
   return (
     <div>
-      <span className="eyebrow">Submissions</span>
-      <h1 style={{ marginTop: 10, fontSize: 26 }}>Diagnostic submissions</h1>
+      <p className={styles.kicker}>Submissions</p>
+      <h1 style={{ marginTop: 12, fontSize: 26 }}>Diagnostic submissions</h1>
 
       <form className={styles.filters} method="get">
         <select name="status" defaultValue={sp.status ?? ""}>

@@ -32,10 +32,10 @@ export default async function SubmissionDetailPage({
       <Link className={styles["back-link"]} href="/admin">
         &larr; All submissions
       </Link>
-      <h1 style={{ marginTop: 14, fontSize: 26 }}>
+      <h1 style={{ marginTop: 16, fontSize: 26 }}>
         {submission.contactName || submission.contactOrg || submission.contactEmail || "Anonymous submission"}
       </h1>
-      <p style={{ color: "var(--text-faint)", fontSize: 13.5, fontFamily: "var(--font-mono)" }}>
+      <p style={{ color: "var(--text-faint)", fontSize: 14 }}>
         {submission.createdAt.toLocaleString()}
       </p>
 
