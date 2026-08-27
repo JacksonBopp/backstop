@@ -53,3 +53,69 @@ enum SubmissionStatus {
   NOT_YET
   CLOSED
 }
+
+model Team {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name String
+  // Unguessable (crypto.randomUUID). Doubles as the public share token in
+  // /pulse/[slug], deliberately one field doing both jobs.
+  slug String @unique
+
+  responses PulseResponse[]
+}
+
+enum SeniorityBand {
+  IC
+  SENIOR_IC
+  MANAGER
+  LEADERSHIP
+}
+
+enum WorkloadType {
+  GENERATIVE
+  AI_VERIFICATION
+  MEETINGS
+  EXCEPTIONS
+}
+
+enum PressureLevel {
+  LOW
+  MODERATE
+  HIGH
+  OVERWHELMING
+}
+
+enum ResourceLevel {
+  INSUFFICIENT
+  ADEQUATE
+  STRONG
+}
+
+enum TrustSignal {
+  RELY_WITHOUT_CHECKING
+  VERIFY_ROUTINELY
+  OVERRIDE_FREQUENTLY
+}
+
+model PulseResponse {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+
+  teamId String
+  team   Team   @relation(fields: [teamId], references: [id], onDelete: Cascade)
+
+  // ISO week ("2026-W34"), stamped server-side from request time.
+  // Never accepted from the client.
+  cycle String
+
+  seniorityBand    SeniorityBand
+  dominantWorkload WorkloadType
+  demandsLevel     PressureLevel
+  resourcesLevel   ResourceLevel
+  trustSignal      TrustSignal
+
+  @@index([teamId, cycle])
+}

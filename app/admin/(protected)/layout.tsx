@@ -2,6 +2,7 @@ import Link from "next/link";
 import styles from "@/app/admin/admin.module.css";
 import { requireAdminSession } from "@/lib/session";
 import { logout } from "@/app/admin/actions";
+import AdminSubnav from "@/app/admin/AdminSubnav";
 
 export default async function ProtectedAdminLayout({ children }: { children: React.ReactNode }) {
   await requireAdminSession();
@@ -21,7 +22,10 @@ export default async function ProtectedAdminLayout({ children }: { children: Rea
           </button>
         </form>
       </div>
-      <div className={styles.wrap}>{children}</div>
+      <div className={styles.wrap}>
+        <AdminSubnav />
+        <div style={{ marginTop: 24 }}>{children}</div>
+      </div>
     </div>
   );
 }

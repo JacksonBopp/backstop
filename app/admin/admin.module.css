@@ -25,8 +25,8 @@
 .login-card .err { margin-top: 16px; font-size: 14px; color: var(--copper); }
 
 /* ---------- Dashboard table ---------- */
-.filters { display: flex; gap: 12px; flex-wrap: wrap; margin: 24px 0; }
-.filters select {
+.filters { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin: 24px 0; }
+.filters select, .filters input {
   font-family: var(--font-body); font-size: 14px; padding: 8px 12px; min-height: 40px;
   border-radius: 4px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--text);
 }
@@ -69,3 +69,36 @@
 .side-card textarea { min-height: 120px; resize: vertical; }
 .back-link { font-size: 13px; color: var(--text-faint); text-decoration: none; }
 .back-link:hover { color: var(--copper); }
+
+/* ---------- Sub-nav (Submissions | Teams) ---------- */
+.subnav { display: flex; gap: 4px; margin-top: 8px; }
+.subnav a { padding: 8px 14px; min-height: 32px; display: inline-flex; align-items: center; border-radius: 4px; font-size: 14px; color: var(--text-soft); text-decoration: none; }
+.subnav a:hover { color: var(--text); }
+.subnav a.active { background: var(--text); color: var(--bg); font-weight: 600; }
+
+/* ---------- Team pulse stat tiles ---------- */
+.pulse-stats { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 24px; }
+.pulse-stat { flex: 1 1 160px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px; }
+.pulse-stat .n { font-size: 28px; font-weight: 600; color: var(--text); font-variant-numeric: tabular-nums; }
+.pulse-stat .l { margin-top: 4px; font-size: 12px; color: var(--text-faint); }
+
+/* ---------- Meter bars, reused inside cards and table cells ---------- */
+.meter-row { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+.meter-item { display: grid; grid-template-columns: 160px 1fr 40px; align-items: center; gap: 12px; }
+.meter-item .ml { font-size: 12px; color: var(--text-soft); }
+.meter-item .mn { font-size: 12px; color: var(--text-faint); text-align: right; font-variant-numeric: tabular-nums; }
+.meter-track { height: 8px; background: color-mix(in srgb, var(--text) 7%, var(--surface)); border-radius: 4px; overflow: hidden; }
+.meter-fill { height: 100%; background: var(--text-faint); border-radius: 4px; }
+.meter-item.accent .meter-fill { background: var(--copper); }
+
+.cell-meter { display: flex; align-items: center; gap: 8px; min-width: 140px; }
+.cell-meter .track { flex: 1; height: 6px; background: color-mix(in srgb, var(--text) 7%, var(--surface)); border-radius: 3px; overflow: hidden; min-width: 60px; }
+.cell-meter .fill { height: 100%; background: var(--text-faint); border-radius: 3px; }
+.cell-meter .fill.accent { background: var(--copper); }
+.cell-meter .n { font-size: 12px; color: var(--text-faint); white-space: nowrap; }
+
+/* ---------- Drift / trend callout, same inversion as the landing page's dark panels ---------- */
+.drift-box { background: var(--text); color: var(--bg); border-radius: 6px; padding: 24px; margin-top: 24px; }
+.drift-box .verdict { font-size: 12px; font-weight: 600; letter-spacing: 0.02em; color: var(--copper); }
+.drift-box h3 { color: var(--bg); font-size: 18px; font-family: var(--font-display); margin-top: 8px; }
+.drift-box p { margin-top: 12px; font-size: 15px; line-height: 1.6; color: color-mix(in srgb, var(--bg) 85%, var(--text)); }

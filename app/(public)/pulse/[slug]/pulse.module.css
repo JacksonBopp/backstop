@@ -1,0 +1,31 @@
+.view { padding: 64px 0 96px; max-width: 640px; }
+
+.head h1 { font-size: clamp(26px, 4vw, 34px); margin-top: 16px; }
+.head p.lede { margin-top: 16px; font-size: 17px; line-height: 1.6; color: var(--text-soft); }
+
+.progress-row { display: flex; align-items: center; gap: 16px; margin: 48px 0 28px; }
+.progress-label { font-size: 12px; color: var(--text-faint); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.progress-track { flex: 1; height: 4px; background: var(--line); border-radius: 2px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--copper); transition: width 0.25s ease; }
+@media (prefers-reduced-motion: reduce) { .progress-fill { transition: none; } }
+
+.q-card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 32px;
+  box-shadow: var(--shadow);
+}
+.q-legend { font-family: var(--font-display); font-size: 21px; font-weight: 600; line-height: 1.4; }
+.q-options { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+.opt {
+  display: flex; align-items: flex-start; gap: 12px; padding: 16px; min-height: 40px;
+  border: 1px solid var(--line); border-radius: 5px; cursor: pointer; transition: border-color 0.12s ease, background 0.12s ease;
+}
+.opt:hover { border-color: var(--line-strong); }
+.opt input { margin-top: 4px; accent-color: var(--copper); flex-shrink: 0; }
+.opt span { font-size: 16px; line-height: 1.5; color: var(--text); }
+.opt.selected { border-color: var(--copper); background: var(--copper-soft); }
+
+.q-nav { margin-top: 28px; display: flex; justify-content: space-between; gap: 12px; }
+
+.thanks { margin-top: 48px; text-align: left; }
+.thanks h1 { font-size: 28px; }
+.thanks p { margin-top: 16px; font-size: 17px; line-height: 1.6; color: var(--text-soft); }
