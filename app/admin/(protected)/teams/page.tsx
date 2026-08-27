@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "@/app/admin/admin.module.css";
 import { prisma } from "@/lib/db";
-import { createTeam } from "@/app/admin/teams/actions";
+import { createTeam, seedDemoTeam } from "@/app/admin/teams/actions";
 import CopyLinkButton from "@/app/admin/teams/CopyLinkButton";
 
 export default async function TeamsPage() {
@@ -19,6 +19,12 @@ export default async function TeamsPage() {
         <input type="text" name="name" placeholder="New team name" required style={{ minWidth: 220 }} />
         <button className="btn btn-primary" type="submit">
           Create team
+        </button>
+      </form>
+
+      <form action={seedDemoTeam} style={{ marginTop: 12 }}>
+        <button className="btn btn-ghost" type="submit">
+          Seed a demo team (fake, four cycles, for showing the interpretation engine before you have real data)
         </button>
       </form>
 
