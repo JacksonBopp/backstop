@@ -10,7 +10,9 @@ export default function SiteFooter() {
             workforce surveys, 2025 to 2026, resistance and production-stall figures. Figures are directional industry
             estimates, not audited statistics, cited to indicate scale, not precision.
           </div>
-          <div className="copyright">IIO, 2026</div>
+          <div className="copyright">
+            Backstop, 2026 &middot; <a href="/diagnostic">the original AI-adoption diagnostic</a>
+          </div>
         </div>
       </div>
     </footer>

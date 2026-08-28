@@ -4,7 +4,7 @@ import { prisma } from "@/lib/db";
 import PulseApp from "./PulseApp";
 
 export const metadata: Metadata = {
-  title: "IIO Team Pulse",
+  title: "Team Pulse: AI Workload Check-in",
   description: "A short recurring check-in on workload, pace, and trust in AI output.",
 };
 

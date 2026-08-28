@@ -1,6 +1,4 @@
 import Link from "next/link";
-import LayerCard from "@/components/LayerCard";
-import { layers } from "@/data/layers";
 
 export default function LandingPage() {
   return (
@@ -8,22 +6,21 @@ export default function LandingPage() {
       <section className="hero">
         <div className="container">
           <h1>
-            AI doesn&apos;t fail on the model.
+            Someone has to check the AI&apos;s replies.
             <br />
-            It fails on the <em>system</em> around it.
+            Right now, <em>nobody&apos;s</em> tracking who.
           </h1>
           <p className="sub">
-            IIO is a diagnostic framework built on systems dynamics and industrial-organizational psychology. It looks at
-            how companies integrate AI into work: the flows, the roles, the trust, and the well-being of the people
-            running the loop. Not another rollout playbook. This is the missing discipline between AI strategy and AI
-            that actually sticks.
+            Backstop is a Zendesk app that tracks AI-verification load: which agents and which groups are absorbing
+            the work of checking, correcting, or overriding AI-generated replies. It&apos;s a real cost native
+            Zendesk reporting doesn&apos;t measure, and it doesn&apos;t stay evenly spread on its own.
           </p>
           <div className="cta-row">
-            <Link className="btn btn-primary" href="/diagnostic">
-              Run the live diagnostic
-            </Link>
-            <a className="btn btn-ghost" href="#architecture">
-              See the framework
+            <a className="btn btn-primary" href="#how">
+              See how it works
+            </a>
+            <a className="btn btn-ghost" href="mailto:boppjackson@gmail.com?subject=Backstop%20-%20quick%20intro">
+              Get in touch
             </a>
           </div>
 
@@ -47,70 +44,36 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section id="architecture">
+      <section id="how">
         <div className="container">
           <div className="head">
-            <h2>Five layers, one running system, not five separate initiatives.</h2>
+            <h2>One click in the ticket. One dashboard for the team.</h2>
             <p className="lede">
-              A diagnostic layer determines which configuration of the framework applies to a given team. The four
-              operating layers aren&apos;t sequential phases. They&apos;re a closed loop: what you measure in Layer 4
-              changes how you re-diagnose in Layer 0.
+              No new workflow to learn. An agent flags a ticket the moment they catch themselves verifying,
+              correcting, or overriding an AI-drafted reply. Everything after that runs on its own.
             </p>
           </div>
 
-          <div className="diagram-wrap">
-            <div className="layers">
-              {layers.map((layer) => (
-                <LayerCard key={layer.id} layer={layer} />
-              ))}
-            </div>
-            <div className="loop-col">
-              <svg viewBox="0 0 28 420" preserveAspectRatio="none" aria-hidden="true">
-                <path
-                  className="loop-path"
-                  d="M 14 20 L 14 380 M 14 380 L 7 368 M 14 380 L 21 368 M 14 20 L 7 32 M 14 20 L 21 32"
-                />
-              </svg>
-            </div>
-          </div>
-          <div className="cta-row" style={{ marginTop: 32 }}>
-            <Link className="btn btn-primary" href="/diagnostic">
-              Run the live diagnostic
-            </Link>
-          </div>
-
-          <div className="process" style={{ marginTop: 72 }}>
+          <div className="process" style={{ marginTop: 48 }}>
             <div className="step">
               <div className="num">01</div>
-              <h3>Diagnose</h3>
-              <p>
-                Run the Layer 0 intake with leadership and a cross-section of the affected teams. Score deployment
-                topology, readiness, and surveillance sensitivity.
-              </p>
+              <h3>Flag</h3>
+              <p>A one-click toggle in the Zendesk ticket sidebar marks the ticket as AI-assisted, verified by a human.</p>
             </div>
             <div className="step">
               <div className="num">02</div>
-              <h3>Map</h3>
-              <p>
-                Model the actual work system, its flows, feedback loops, and interdependencies, before any role or tool
-                changes. Surface what AI silently removes, not just what it adds.
-              </p>
+              <h3>Sync</h3>
+              <p>Backstop pulls tagged and untagged ticket volume by group on a schedule, no manual export, ever.</p>
             </div>
             <div className="step">
               <div className="num">03</div>
-              <h3>Redesign</h3>
-              <p>
-                Rebuild roles and the change plan together: function allocation, trust calibration, and the specific
-                anxieties this team is carrying.
-              </p>
+              <h3>Aggregate</h3>
+              <p>Each cycle, verification rate is computed per group, with small groups suppressed rather than guessed at.</p>
             </div>
             <div className="step">
               <div className="num">04</div>
-              <h3>Instrument</h3>
-              <p>
-                Stand up demands/resources metrics that don&apos;t read as surveillance, and route findings back into
-                the next diagnostic cycle.
-              </p>
+              <h3>Surface</h3>
+              <p>The dashboard flags when that load is concentrating in one group instead of spreading out evenly.</p>
             </div>
           </div>
         </div>
@@ -119,94 +82,116 @@ export default function LandingPage() {
       <section id="problem">
         <div className="container">
           <div className="head">
-            <h2>Companies are buying AI faster than they can redesign the work around it.</h2>
+            <h2>AI replies didn&apos;t remove the work. They moved it, quietly, onto whoever checks them.</h2>
           </div>
           <div className="problem-body">
             <div>
               <p>
-                Enterprise AI spend has moved fast, tens of billions committed since 2023, while the systems that work
-                runs on haven&apos;t moved at all. Same job descriptions, same review chains, same performance metrics,
-                same informal trust networks. The tool changes. What surrounds it doesn&apos;t.
+                Every AI-assisted reply that goes out still needs a human to have trusted it, and trust isn&apos;t
+                free. Someone reads it, someone decides whether to send it as-is, correct it, or override it
+                entirely. That decision is real cognitive work. It just doesn&apos;t show up anywhere a ticketing
+                system tracks by default.
               </p>
               <p>
-                MIT&apos;s NANDA researchers call this the learning gap: the inability of an organization to integrate a
-                new kind of teammate into its workflows, roles, and culture. Solving it takes industrial-organizational
-                psychology and systems design, not more data science, and almost nobody is resourced for that
-                combination.
+                Native Zendesk reporting counts tickets closed, response time, CSAT. None of that tells you whether
+                one group is quietly absorbing most of the verification burden while another barely touches AI
+                output at all, or whether that split is shifting cycle over cycle.
               </p>
               <p>
-                Meanwhile the human cost compounds quietly: fear of job loss, training overwhelm, review fatigue from
-                verify-the-AI work, and, in a meaningful share of teams, quiet or active sabotage of the very tools
-                leadership is betting on.
+                Left unmeasured, that load concentrates on whoever&apos;s conscientious enough to actually check the
+                AI&apos;s work, and that&apos;s exactly the group that burns out first.
               </p>
             </div>
             <div className="callout">
               <span className="k">What&apos;s actually being measured</span>
               <p>
-                Most organizations track adoption rate and output volume. Almost none track cognitive load, trust
-                calibration, or whether the redesigned role still has the autonomy and skill variety it had before. You
-                can&apos;t fix what you&apos;re not instrumenting, and right now the human side of AI integration is
-                running dark.
+                Most support orgs can tell you how many tickets used AI. Almost none can tell you which group is
+                doing the checking, or whether that&apos;s changing. You can&apos;t fix what you&apos;re not
+                instrumenting, and right now this specific kind of work runs dark.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="why-now">
+      <section id="why">
         <div className="container">
           <div className="head">
-            <h2>The &quot;GenAI divide&quot; is a positioning opportunity, not just a warning sign.</h2>
+            <h2>The &quot;GenAI divide&quot; shows up inside the support queue too.</h2>
           </div>
           <div className="why-grid">
             <div>
               <p>
                 MIT&apos;s researchers describe a split between companies with high AI adoption and low actual
-                transformation: the GenAI Divide. The 5% who escape it share a consistent trait. They treated
-                integration as a workflow, culture, and structure problem, not a procurement decision.
+                transformation: the GenAI Divide. The organizations that escape it share a consistent trait. They
+                treated integration as a workflow and measurement problem, not a procurement decision.
               </p>
               <p>
-                That&apos;s a discipline gap, and right now almost no one owns it end to end. Change consultancies know
-                culture. AI vendors know models. Almost nobody is fluent in both organizational psychology and systems
-                dynamics applied specifically to human-AI work. That&apos;s the seat IIO is built to fill.
+                Support orgs rolling out AI-assisted replies are running the same experiment at smaller scale. The
+                tool shipped. Whether the verification work it creates is sustainable, evenly distributed, or quietly
+                wearing out one group, almost nobody is tracking. That&apos;s the gap Backstop is built to close.
               </p>
             </div>
             <blockquote>
               MIT&apos;s researchers trace the failure to a learning gap between systems and organizations: the
-              inability to integrate AI into existing workflows, structures, and culture, not a shortfall in the models
-              themselves.
+              inability to integrate AI into existing workflows, structures, and culture, not a shortfall in the
+              models themselves.
               <cite>Summarized from MIT Media Lab, Project NANDA, &quot;The GenAI Divide,&quot; 2025</cite>
             </blockquote>
           </div>
         </div>
       </section>
 
+      <section id="roadmap">
+        <div className="container">
+          <div className="head">
+            <h2>AI-verification load is the first thing Backstop tracks. Not the last.</h2>
+            <p className="lede">
+              Zendesk&apos;s native tooling is built for ticket volume and response time. It has real blind spots
+              around the new kinds of work AI is creating inside support orgs. Backstop is built to grow into more
+              of them, one focused app at a time, not one app trying to do everything at once.
+            </p>
+          </div>
+          <ol style={{ marginTop: 32, maxWidth: "58ch", color: "var(--text-soft)", fontSize: 16, lineHeight: 1.7, paddingLeft: 20 }}>
+            <li style={{ marginTop: 8 }}>
+              <strong style={{ color: "var(--text)" }}>Shipped:</strong> AI-verification load, tracked by group, by
+              cycle, with a suppression guard so small groups never get singled out on too little data.
+            </li>
+            <li style={{ marginTop: 8 }}>
+              <strong style={{ color: "var(--text)" }}>Next:</strong> whichever blind spot the first real pilot
+              surfaces. That&apos;s deliberate, the roadmap gets set by what support teams actually run into, not
+              guessed at in advance.
+            </li>
+          </ol>
+        </div>
+      </section>
+
       <section id="ask">
         <div className="container">
           <div className="ask">
-            <h2>
-              IIO is an early-stage framework becoming a product. We&apos;re looking for the people who make that jump
-              faster.
-            </h2>
+            <h2>Backstop is early. We&apos;re looking for the teams and people who help it get real faster.</h2>
             <div className="ask-list">
               <div className="item">
                 <div className="t">Pilot partners</div>
-                <p>An organization mid-AI-rollout willing to run the Layer 0 diagnostic and let us build the case study.</p>
+                <p>
+                  A support team already running AI-assisted replies in Zendesk, willing to connect a trial account
+                  and let us build the case study.
+                </p>
               </div>
               <div className="item">
                 <div className="t">Advisors</div>
                 <p>
-                  People who&apos;ve sat inside I-O psychology, organizational design, or enterprise AI adoption and can
-                  pressure-test the model.
+                  People who&apos;ve built on Zendesk&apos;s app framework, run a support org through an AI rollout,
+                  or can pressure-test where this breaks.
                 </p>
               </div>
               <div className="item">
                 <div className="t">Early conversations</div>
-                <p>Funding, faculty introductions, or just a sharp argument for why this is wrong. All useful right now.</p>
+                <p>Funding, marketplace introductions, or just a sharp argument for why this is wrong. All useful right now.</p>
               </div>
             </div>
             <div className="cta-row">
-              <a className="btn btn-primary" href="mailto:boppjackson@gmail.com?subject=IIO%20-%20quick%20intro">
+              <a className="btn btn-primary" href="mailto:boppjackson@gmail.com?subject=Backstop%20-%20quick%20intro">
                 boppjackson@gmail.com
               </a>
               <a className="btn btn-ghost" href="https://www.linkedin.com/in/jbopp/" target="_blank" rel="noopener noreferrer">

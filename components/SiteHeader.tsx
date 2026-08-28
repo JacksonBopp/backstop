@@ -5,16 +5,16 @@ export default function SiteHeader() {
     <header className="site">
       <div className="nav-inner">
         <Link className="wordmark" href="/">
-          <span className="mark">IIO</span>
-          <span className="tag">Integrated Intelligence &amp; Organization</span>
+          <span className="mark">Backstop</span>
+          <span className="tag">AI-verification load, tracked in Zendesk</span>
         </Link>
         <nav className="links">
-          <Link href="/#architecture">Framework</Link>
-          <Link href="/#problem">The Gap</Link>
+          <Link href="/#how">How it works</Link>
+          <Link href="/#problem">Why it matters</Link>
+          <Link href="/#roadmap">Roadmap</Link>
           <Link href="/#ask">Get Involved</Link>
-          <Link href="/diagnostic">Diagnostic</Link>
         </nav>
-        <a className="btn btn-primary" href="mailto:boppjackson@gmail.com?subject=IIO%20-%20quick%20intro">
+        <a className="btn btn-primary" href="mailto:boppjackson@gmail.com?subject=Backstop%20-%20quick%20intro">
           Get in touch
         </a>
       </div>

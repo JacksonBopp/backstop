@@ -55,7 +55,7 @@ export default function PulseApp({ slug, teamName }: { slug: string; teamName: s
               keep the trend going, one response doesn&apos;t show much, the pattern over a few cycles is the point.
             </p>
             <Link href="/" className="btn btn-ghost" style={{ marginTop: 24 }}>
-              Back to IIO
+              Back to Backstop
             </Link>
           </div>
         </div>

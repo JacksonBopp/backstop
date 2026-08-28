@@ -12,7 +12,7 @@ export default async function ProtectedAdminLayout({ children }: { children: Rea
       <div className={styles.bar}>
         <div>
           <Link href="/admin" className={styles.mark}>
-            IIO
+            Backstop
           </Link>
           <span className={styles.sub}>ADMIN</span>
         </div>

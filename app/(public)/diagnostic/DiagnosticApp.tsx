@@ -105,7 +105,7 @@ export default function DiagnosticApp() {
       {view === "diagnostic" && (
         <section className={styles.view}>
           <div className={`${styles.head} head`}>
-            <h1>Run the intake IIO uses to open every engagement.</h1>
+            <h1>Run the original nine-question intake behind this framework.</h1>
             <p className="lede">
               Nine questions across the three axes that route a client into a specific configuration of the framework:
               deployment topology, change-readiness baseline, and surveillance sensitivity. Answer as your organization,
@@ -183,7 +183,7 @@ export default function DiagnosticApp() {
               />
 
               <div className={styles.synthesis}>
-                <h3>Where an IIO engagement would start</h3>
+                <h3>Where an engagement would start</h3>
                 <ul>
                   <li>{topologyTemplates[winners.topology]}</li>
                   <li>{readinessTemplates[winners.readiness]}</li>
@@ -299,7 +299,7 @@ export default function DiagnosticApp() {
 
       <div style={{ paddingBottom: 40 }}>
         <Link href="/" style={{ fontSize: 13, color: "var(--text-faint)" }}>
-          Back to the IIO overview
+          Back to Backstop
         </Link>
       </div>
     </div>
