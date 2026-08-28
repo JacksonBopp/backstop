@@ -119,3 +119,45 @@ model PulseResponse {
 
   @@index([teamId, cycle])
 }
+
+model ZendeskAccount {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  subdomain   String  @unique
+  displayName String?
+
+  // OAuth tokens for the connected Zendesk account. Acceptable as plain
+  // DB fields while this only holds accounts we (not third-party
+  // customers) control; revisit encryption-at-rest before real installs.
+  accessToken    String   @db.Text
+  refreshToken   String   @db.Text
+  tokenExpiresAt DateTime
+
+  lastSyncedAt DateTime?
+
+  tickets TicketSnapshot[]
+}
+
+model TicketSnapshot {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+
+  accountId String
+  account   ZendeskAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+
+  ticketId Int
+  // ISO week, computed at sync time from the ticket's updated_at.
+  cycle String
+
+  groupId   Int?
+  groupName String?
+
+  // Whether the backstop_ai_assisted tag was present at sync time.
+  aiAssisted Boolean
+  status     String
+
+  @@unique([accountId, ticketId, cycle])
+  @@index([accountId, cycle])
+}

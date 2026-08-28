@@ -4,6 +4,10 @@ import { redirect } from "next/navigation";
 import { prisma } from "@/lib/db";
 import { generateTeamSlug } from "@/lib/slug";
 
+// Fixed, well-known slug so the public marketing site can always link to
+// the same showcase example, regardless of how many times it's reseeded.
+const SHOWCASE_TEAM_SLUG = "showcase-example";
+
 export async function createTeam(formData: FormData) {
   const name = String(formData.get("name") ?? "").trim();
   if (!name) return;
@@ -22,8 +26,12 @@ export async function createTeam(formData: FormData) {
  * usage, the team name says so and stays visible everywhere the team appears.
  */
 export async function seedDemoTeam() {
+  // Idempotent: re-running this replaces the previous showcase data rather
+  // than piling up duplicate demo teams. Cascade delete clears its responses.
+  await prisma.team.deleteMany({ where: { slug: SHOWCASE_TEAM_SLUG } });
+
   const team = await prisma.team.create({
-    data: { name: "Demo Team (simulated data, not a real pilot)", slug: generateTeamSlug() },
+    data: { name: "Demo Team (simulated data, not a real pilot)", slug: SHOWCASE_TEAM_SLUG },
   });
 
   const cycles = ["2026-D01", "2026-D02", "2026-D03", "2026-D04"];
