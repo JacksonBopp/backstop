@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "TicketSnapshot" ALTER COLUMN "ticketId" SET DATA TYPE BIGINT,
+ALTER COLUMN "groupId" SET DATA TYPE BIGINT;

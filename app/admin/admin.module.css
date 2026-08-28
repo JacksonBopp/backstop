@@ -30,7 +30,7 @@
   font-family: var(--font-body); font-size: 14px; padding: 8px 12px; min-height: 40px;
   border-radius: 4px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--text);
 }
-.table-wrap { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--surface); }
+.table-wrap { border: 1px solid var(--line); border-radius: 6px; overflow-x: auto; background: var(--surface); }
 .table-wrap table { width: 100%; border-collapse: collapse; font-size: 14px; }
 .table-wrap th {
   text-align: left; font-size: 12px; font-weight: 600; letter-spacing: 0.02em;

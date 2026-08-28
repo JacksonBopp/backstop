@@ -147,11 +147,12 @@ model TicketSnapshot {
   accountId String
   account   ZendeskAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
 
-  ticketId Int
+  // BigInt: Zendesk ticket ids can exceed Postgres's 32-bit integer range.
+  ticketId BigInt
   // ISO week, computed at sync time from the ticket's updated_at.
   cycle String
 
-  groupId   Int?
+  groupId   BigInt?
   groupName String?
 
   // Whether the backstop_ai_assisted tag was present at sync time.

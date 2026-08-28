@@ -24,7 +24,7 @@ export default async function BackstopAccountPage({
 
   const snapshots: TicketSnapshotInput[] = account.tickets.map((t) => ({
     cycle: t.cycle,
-    groupId: t.groupId,
+    groupId: t.groupId !== null ? Number(t.groupId) : null,
     groupName: t.groupName,
     aiAssisted: t.aiAssisted,
   }));

@@ -86,19 +86,22 @@ async function syncAccount(account: ZendeskAccount): Promise<number> {
     for (const ticket of data.tickets) {
       const cycle = getCycleForDate(new Date(ticket.updated_at));
       const groupId = ticket.group_id;
+      const groupIdBig = groupId ? BigInt(groupId) : null;
       await prisma.ticketSnapshot.upsert({
-        where: { accountId_ticketId_cycle: { accountId: account.id, ticketId: ticket.id, cycle } },
+        where: {
+          accountId_ticketId_cycle: { accountId: account.id, ticketId: BigInt(ticket.id), cycle },
+        },
         create: {
           accountId: account.id,
-          ticketId: ticket.id,
+          ticketId: BigInt(ticket.id),
           cycle,
-          groupId,
+          groupId: groupIdBig,
           groupName: groupId ? (groupNameById.get(groupId) ?? null) : null,
           aiAssisted: ticket.tags.includes("backstop_ai_assisted"),
           status: ticket.status,
         },
         update: {
-          groupId,
+          groupId: groupIdBig,
           groupName: groupId ? (groupNameById.get(groupId) ?? null) : null,
           aiAssisted: ticket.tags.includes("backstop_ai_assisted"),
           status: ticket.status,
