@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import styles from "@/app/admin/admin.module.css";
 import { prisma } from "@/lib/db";
 import { syncOneAccount } from "@/lib/backstopSync";
+import { generateCycleNarrative } from "@/lib/backstopNarrative";
 import {
   summarizeAllCycles,
   computeConcentration,
@@ -32,6 +33,11 @@ export default async function BackstopAccountPage({
   const cycles = summarizeAllCycles(snapshots).reverse(); // newest first
   const concentration = computeConcentration(snapshots);
   const latestCycle = cycles[0];
+
+  const narrative =
+    !concentration.insufficientData && latestCycle && !latestCycle.suppressed
+      ? await generateCycleNarrative(latestCycle, concentration)
+      : null;
 
   async function sync() {
     "use server";
@@ -100,7 +106,12 @@ export default async function BackstopAccountPage({
               ? "Load looks evenly distributed"
               : "Not enough data yet"}
         </h3>
-        <p>{concentration.guidance}</p>
+        <p>{narrative ?? concentration.guidance}</p>
+        {narrative && (
+          <p style={{ marginTop: 8, fontSize: 12, color: "color-mix(in srgb, var(--bg) 55%, var(--text))" }}>
+            AI-generated read of this cycle&apos;s numbers, not a fixed template.
+          </p>
+        )}
       </div>
 
       <h2 style={{ marginTop: 40, fontSize: 20 }}>Cycle history</h2>
