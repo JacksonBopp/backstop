@@ -120,6 +120,13 @@ model PulseResponse {
   @@index([teamId, cycle])
 }
 
+model LoginAttempt {
+  ip           String    @id
+  failedCount  Int       @default(0)
+  lastFailedAt DateTime  @default(now())
+  lockedUntil  DateTime?
+}
+
 model ZendeskAccount {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())

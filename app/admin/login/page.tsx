@@ -19,7 +19,10 @@ export default async function AdminLoginPage({
             Sign in
           </button>
         </form>
-        {error && <p className={styles.err}>Wrong password. Try again.</p>}
+        {error === "locked" && (
+          <p className={styles.err}>Too many failed attempts. Try again in a few minutes.</p>
+        )}
+        {error === "1" && <p className={styles.err}>Wrong password. Try again.</p>}
       </div>
     </div>
   );
