@@ -31,7 +31,7 @@ export async function startZendeskConnect(formData: FormData) {
   authorizeUrl.searchParams.set("response_type", "code");
   authorizeUrl.searchParams.set("client_id", clientId);
   authorizeUrl.searchParams.set("redirect_uri", redirectUri);
-  authorizeUrl.searchParams.set("scope", "read write");
+  authorizeUrl.searchParams.set("scope", "read");
   authorizeUrl.searchParams.set("state", state);
 
   redirect(authorizeUrl.toString());
