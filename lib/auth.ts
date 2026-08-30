@@ -2,6 +2,7 @@ import { SignJWT, jwtVerify } from "jose";
 import bcrypt from "bcryptjs";
 
 export const SESSION_COOKIE = "iio_admin_session";
+export const OAUTH_STATE_COOKIE = "backstop_oauth_state";
 const SESSION_DURATION = "7d";
 
 function getSecretKey(): Uint8Array {

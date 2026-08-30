@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { verifyAdminPassword } from "@/lib/auth";
-import { setSessionCookie, clearSessionCookie } from "@/lib/session";
+import { setSessionCookie, clearSessionCookie, requireAdminSession } from "@/lib/session";
 import { prisma } from "@/lib/db";
 import type { SubmissionStatus } from "@/generated/prisma/client";
 
@@ -24,6 +24,7 @@ export async function logout() {
 }
 
 export async function updateSubmission(id: string, status: SubmissionStatus, notes: string) {
+  await requireAdminSession();
   await prisma.submission.update({
     where: { id },
     data: { status, notes },

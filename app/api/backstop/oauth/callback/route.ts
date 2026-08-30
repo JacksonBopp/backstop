@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
+import { OAUTH_STATE_COOKIE } from "@/lib/auth";
 import { requireAdminSession } from "@/lib/session";
 import { prisma } from "@/lib/db";
 
@@ -29,6 +31,13 @@ export async function GET(req: Request) {
   const [subdomain] = state.split(":");
   if (!subdomain) {
     return NextResponse.json({ error: "Malformed state." }, { status: 400 });
+  }
+
+  const store = await cookies();
+  const expectedState = store.get(OAUTH_STATE_COOKIE)?.value;
+  store.delete(OAUTH_STATE_COOKIE);
+  if (!expectedState || expectedState !== state) {
+    return NextResponse.json({ error: "State mismatch. Start the connect flow again." }, { status: 400 });
   }
 
   const clientId = process.env.ZENDESK_OAUTH_CLIENT_ID;
